@@ -1,0 +1,6 @@
+- id: 1
+  type: male
+  name: 男
+- id: 2
+  type: female
+  name: 女

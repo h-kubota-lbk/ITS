@@ -1,0 +1,22 @@
+- breadcrumb :users
+h1
+  | ユーザー一覧
+table.table.table-striped
+  thead
+    tr
+      th = t('.name')
+      th = t('.email')
+      th = t('.gender')
+      th = t('.birthday')
+      th
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.name
+        td = user.email
+        td = GenderType.find_by(id: user.gender).name
+        td = user.birthday
+        td = link_to 'Show', user
+        td = link_to 'Edit', edit_user_path(user)
+        td = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'New User', new_user_path

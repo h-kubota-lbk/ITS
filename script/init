@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+cp .env.dev.sample .env.dev
+
+docker-compose build
+
+docker-compose run --rm web bundle exec rails new . --force --database=mysql --skip-turbolinks --skip-git --skip-test --webpack=vue
+
+cp -f template/database.yml config/database.yml
+sed -i -e "s/host: localhost/host: webpack/g" config/webpacker.yml
+
+docker-compose run --rm web bundle exec spring binstub --all

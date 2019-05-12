@@ -1,0 +1,36 @@
+h1
+  | 新規ユーザー登録
+= form_with model: @user, local: true do |f|
+  - if f.object.errors.any?
+    .alert.alert-warning
+      ul
+        = f.object.errors.full_messages.each do |message|
+          li = message
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :name_kana
+    = f.text_field :name_kana, class: 'form-control'
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: 'form-control'
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, class: 'form-control'
+  .form-group
+    = f.label :birthday
+    = f.date_field :birthday, class: 'form-control'
+  .form-group
+    = f.label :gender
+    .form-check.form-check-inline
+      = f.radio_button :gender, GenderType.find_by(type: 'male').id, {}
+      = f.label :male
+    .form-check.form-check-inline
+      = f.radio_button :gender, GenderType.find_by(type: 'female').id, {}
+      = f.label :female
+  .form-group
+    = f.submit "登録", class: 'btn btn-primary'
