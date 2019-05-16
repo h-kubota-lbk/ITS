@@ -28,6 +28,7 @@ $ sudo nfsd enable
 
 ## 初期ディレクトリ構造
 
+```
 .
 ├── myapp
 │      ├── script
@@ -42,6 +43,7 @@ $ sudo nfsd enable
 │      ├── Gemfile
 │      └── Gemfile.lock
 └── Vagrantfile
+```
 
 ## コマンド入力
 ```
