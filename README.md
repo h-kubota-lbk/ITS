@@ -2,14 +2,14 @@
 
 ## 前提条件
 
-vagrant, VirtualBoxインストール済（なるべく最新のもの）
-githubのアカウント発行済
-githubアカウントに公開鍵を登録済
-
-[windowsのみ]
-コマンドプロンプトを管理者権限で実行すること
-コマンドプロンプト上でlinuxコマンドを使える状態であること
-( busybox64を使用するかwslを使用するとよいかも )
+  vagrant, VirtualBoxインストール済（なるべく最新のもの）
+  githubのアカウント発行済
+  githubアカウントに公開鍵を登録済
+  
+  [windowsのみ]
+  コマンドプロンプトを管理者権限で実行すること
+  コマンドプロンプト上でlinuxコマンドを使える状態であること
+  ( busybox64を使用するかwslを使用するとよいかも )
 
 ## 必要なコマンドを入力
 ```
@@ -68,6 +68,6 @@ $ script/init && script/bootstrap
 
 ### gitコマンドはローカルPCからで
 
-herokuコマンドも同様
+  herokuコマンドも同様
 
 ### 
