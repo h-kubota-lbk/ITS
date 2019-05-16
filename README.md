@@ -2,11 +2,11 @@
 
 ## 前提条件
 
-  vagrant, VirtualBoxインストール済（なるべく最新のもの）
+  * vagrant, VirtualBoxインストール済（なるべく最新のもの）
 
-  githubのアカウント発行済
+  * githubのアカウント発行済
 
-  githubアカウントに公開鍵を登録済(ローカルに秘密鍵を設置前提)
+  * githubアカウントに公開鍵を登録済(ローカルに秘密鍵を設置前提)
 
   [windowsのみ] ↓↓↓
 
