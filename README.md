@@ -54,8 +54,8 @@ $ sudo nfsd enable
 
 ## コマンド入力
 ```
-$ mkdir -r iwatapp/myapp
-$ cd iwatapp/myapp
+$ mkdir -r iwatapp/ITS
+$ cd iwatapp/ITS
 $ git clone git@github.com:h-kubota-lbk/ITS.git
 $ cp Vagrantfile ../Vagrantfile
 $ cd ../
