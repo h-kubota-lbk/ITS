@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   skip_before_action :require_sign_in!, only: %i[new create]
-
   def index
     @users = User.all
   end
