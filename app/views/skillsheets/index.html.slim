@@ -1,4 +1,16 @@
+- breadcrumb :skillsheets
 h1
-  | Skillsheets#index
-p
-  | Find me in app/views/skillsheets/index.html.erb
+  | スキルシート一覧
+table.table.table-striped
+  thead
+    tr
+      th = t('.name')
+      th = t('.birthday')
+      th
+  tbody
+    - @skillsheets.each do |skillsheet|
+      tr
+        td = skillsheet.user.name
+        td = link_to 'Show', skillsheet
+        td = link_to 'Edit', edit_user_path(skillsheet)
+= link_to 'New Skillsheet', new_skillsheet_path
