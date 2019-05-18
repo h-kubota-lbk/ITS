@@ -12,6 +12,8 @@ html
       .container
         = link_to 'Home', root_path, class: 'navbar-brand'
         ul.navbar-nav
+          li.nav-item = link_to 'ユーザー一覧', root_path
+          li.nav-item = link_to 'スキルシート一覧', skillsheets_path
           li.nav-item = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
     main.container
       - flash.each do |key, val|
