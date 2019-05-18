@@ -12,6 +12,8 @@
 #  role            :integer          default(2), not null  # 権限(1:担当営業,2:一般)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  remember_token  :string(191)
+#  deleted_at      :datetime
 #
 
 class User < ApplicationRecord

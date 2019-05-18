@@ -1,4 +1,40 @@
+- breadcrumb :skillsheet
 h1
-  | Skillsheets#show
-p
-  | Find me in app/views/skillsheets/show.html.erb
+  | スキルシート詳細
+.row
+  .col-sm-3
+    = t('.final_education)
+  .col-sm-9
+    = @skillsheet.final_education
+  .col-sm-3
+    = t('.address')
+  .col-sm-9
+    = @skillsheet.address
+  .col-sm-3
+    = t('.nearest_station_line')
+  .col-sm-9
+    = @skillsheet.nearest_station_line
+  .col-sm-3
+    = t('.nearest_station')
+  .col-sm-9
+    = @skillsheet.nearest_station
+  .col-sm-3
+    = t('.specialty')
+  .col-sm-9
+    = @skillsheet.specialty
+  .col-sm-3
+    = t('.business_knowledge')
+  .col-sm-9
+    = @skillsheet.business_knowledge
+  .col-sm-3
+    = t('.appeal_point')
+  .col-sm-9
+    = @skillsheet.appeal_point
+  .col-sm-3
+    = t('.license')
+  .col-sm-9
+    = @skillsheet.license
+  .col-sm-3
+    = t('.note')
+  .col-sm-9
+    = @skillsheet.note

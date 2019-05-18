@@ -1,14 +1,13 @@
 class SkillsheetsController < ApplicationController
+  before_action :set_skillsheet, only: %i[show edit update]
+
   def index
     @skillsheets = Skillsheet.all
   end
 
-  def show
-    @skillsheet = Skillsheet.find(params[:id])
-  end
+  def show;end
 
-  def print
-  end
+  def print;end
 
   def new
     @skillsheet = Skillsheet.new
@@ -23,15 +22,21 @@ class SkillsheetsController < ApplicationController
     end
   end
 
-  def edit
-    @skillsheet = Skillsheet.find(params[:id])
-  end
+  def edit;end
 
   def update
-    @skillsheet = Skillsheet.find(params[:id])
+    if @skillsheet.update_attributes(skillsheet_params)
+      redirect_to @skillsheet, notice: "更新しました。"
+    else
+      render :edit
+    end
   end
 
   private
+
+  def set_skillsheet
+    @skillsheet = Skillsheet.find(params[:id])
+  end
 
   def skillsheet_params
     params.require(:skillsheet).permit(Skillsheet::PERMITTED_ATTRIBUTES)

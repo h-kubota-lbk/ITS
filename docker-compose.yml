@@ -39,10 +39,10 @@ services:
   data:
     image: "busybox"
     volumes:
-      - "db:/var/lib/mysql/data"
-      - "bundle:/usr/local/bundle"
+      - mysql-data:/var/lib/mysql
+      - bundle:/vendor/bundle
 volumes:
-  db:
+  mysql-data:
     driver: local
   bundle:
     driver: local
