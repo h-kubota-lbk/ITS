@@ -24,5 +24,5 @@ class Skillsheet < ApplicationRecord
   has_many :work_contents
 
   PERMITTED_ATTRIBUTES = %i[user_id final_education address nearest_station_line
-  nearest_station specialty business_knowledge appeal_point license note]
+                            nearest_station specialty business_knowledge appeal_point license note].freeze
 end

@@ -1,18 +1,18 @@
-Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/bionic64"
+Vagrant.configure('2') do |config|
+  config.vm.box = 'ubuntu/bionic64'
 
-  config.vm.network "private_network", ip: "192.168.33.77"
+  config.vm.network 'private_network', ip: '192.168.33.77'
 
-  config.vm.synced_folder ".", "/vagrant-nfs", type: "nfs"
-  config.bindfs.bind_folder "/vagrant-nfs", "/home/vagrant/shared"
+  config.vm.synced_folder '.', '/vagrant-nfs', type: 'nfs'
+  config.bindfs.bind_folder '/vagrant-nfs', '/home/vagrant/shared'
 
-  config.vm.provider "virtualbox" do |vb|
-    vb.memory = "4096"
-    vb.customize ["modifyvm", :id, "--nictype1", "virtio"]
-    vb.customize ["modifyvm", :id, "--nictype2", "virtio"]
+  config.vm.provider 'virtualbox' do |vb|
+    vb.memory = '4096'
+    vb.customize ['modifyvm', :id, '--nictype1', 'virtio']
+    vb.customize ['modifyvm', :id, '--nictype2', 'virtio']
   end
 
-  config.vm.provision "shell", inline: <<-SHELL
+  config.vm.provision 'shell', inline: <<-SHELL
     apt-get update && apt-get install -y \
       apt-transport-https ca-certificates curl gnupg-agent \
       software-properties-common

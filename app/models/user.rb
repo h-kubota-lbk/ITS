@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   has_one :skillsheet
   PERMITTED_ATTRIBUTES = %i[name name_kana email password password_confirmation
-                  birthday gender role]
+                            birthday gender role].freeze
 
   validates :email, presence: true, uniqueness: true
 

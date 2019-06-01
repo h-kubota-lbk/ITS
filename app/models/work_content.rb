@@ -25,5 +25,5 @@ class WorkContent < ApplicationRecord
   belongs_to :skillsheet
 
   PERMITTED_ATTRIBUTES = %i[start_month end_month name skillsheet_id industry
-  os nw db language other team_person position own_phase content]
+                            os nw db language other team_person position own_phase content].freeze
 end

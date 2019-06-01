@@ -5,9 +5,9 @@ class SkillsheetsController < ApplicationController
     @skillsheets = Skillsheet.all
   end
 
-  def show;end
+  def show; end
 
-  def print;end
+  def print; end
 
   def new
     @user = User.find(params[:user_id])
@@ -23,11 +23,11 @@ class SkillsheetsController < ApplicationController
     end
   end
 
-  def edit;end
+  def edit; end
 
   def update
     if @skillsheet.update(skillsheet_params)
-      redirect_to @skillsheet, notice: "更新しました。"
+      redirect_to @skillsheet, notice: '更新しました。'
     else
       render :edit
     end

@@ -14,8 +14,7 @@ class WorkContentsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @work_content = WorkContent.find(params[:id])
@@ -26,8 +25,7 @@ class WorkContentsController < ApplicationController
     end
   end
 
-  def destroy
-  end
+  def destroy; end
 
   private
 
