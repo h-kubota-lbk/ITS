@@ -1,40 +1,43 @@
-- breadcrumb :skillsheet
-h1
-  | スキルシート詳細
+- _label = 'activerecord.attributes.skillsheet'
+
+- breadcrumb :skillsheet, @skillsheet
+
 .row
   .col-sm-3
-    = t('.final_education)
+    = t("#{_label}.final_education")
   .col-sm-9
     = @skillsheet.final_education
   .col-sm-3
-    = t('.address')
+    = t("#{_label}.address")
   .col-sm-9
     = @skillsheet.address
   .col-sm-3
-    = t('.nearest_station_line')
+    = t("#{_label}.nearest_station_line")
   .col-sm-9
     = @skillsheet.nearest_station_line
   .col-sm-3
-    = t('.nearest_station')
+    = t("#{_label}.nearest_station")
   .col-sm-9
     = @skillsheet.nearest_station
   .col-sm-3
-    = t('.specialty')
+    = t("#{_label}.specialty")
   .col-sm-9
     = @skillsheet.specialty
   .col-sm-3
-    = t('.business_knowledge')
+    = t("#{_label}.business_knowledge")
   .col-sm-9
     = @skillsheet.business_knowledge
   .col-sm-3
-    = t('.appeal_point')
+    = t("#{_label}.appeal_point")
   .col-sm-9
     = @skillsheet.appeal_point
   .col-sm-3
-    = t('.license')
+    = t("#{_label}.license")
   .col-sm-9
     = @skillsheet.license
   .col-sm-3
-    = t('.note')
+    = t("#{_label}.note")
   .col-sm-9
     = @skillsheet.note
+
+= link_to '新しい業務内容の登録', new_work_content_path(skillsheet_id: @skillsheet.id)

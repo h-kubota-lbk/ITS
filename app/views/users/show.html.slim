@@ -1,21 +1,22 @@
-- breadcrumb :user
-h1
-  | ユーザー詳細
+- _label = 'activerecord.attributes.user'
+
+- breadcrumb :user, @user
+
 .row
   .col-sm-3
-    = t('.name')
+    = t("#{_label}.name")
   .col-sm-9
     = @user.name
   .col-sm-3
-    = t('.email')
+    = t("#{_label}.email")
   .col-sm-9
     = @user.email
   .col-sm-3
-    = t('.gender')
+    = t("#{_label}.gender")
   .col-sm-9
     = GenderType.find_by(id: @user.gender).name
   .col-sm-3
-    = t('.birthday')
+    = t("#{_label}.birthday")
   .col-sm-9
     = @user.birthday
   .offset-3

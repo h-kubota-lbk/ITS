@@ -1,16 +1,17 @@
+- _label = 'activerecord.attributes.user'
+
 - breadcrumb :skillsheets
-h1
-  | スキルシート一覧
+
 table.table.table-striped
   thead
     tr
-      th = t('.name')
-      th = t('.birthday')
+      th = t("#{_label}.name")
       th
   tbody
     - @skillsheets.each do |skillsheet|
       tr
         td = skillsheet.user.name
-        td = link_to 'Show', skillsheet
-        td = link_to 'Edit', edit_user_path(skillsheet)
-= link_to 'New Skillsheet', new_skillsheet_path
+        td
+          = link_to 'Show', skillsheet
+          | /
+          = link_to 'Edit', edit_skillsheet_path(skillsheet)

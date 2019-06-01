@@ -26,10 +26,12 @@
   .form-group
     = f.label :gender
     .form-check.form-check-inline
-      = f.radio_button :gender, GenderType.find_by(type: 'male').id, {}
-      = f.label :male
+      - male = GenderType.find_by(type: 'male')
+      = f.radio_button :gender, male.id, {}
+      = male.name
     .form-check.form-check-inline
-      = f.radio_button :gender, GenderType.find_by(type: 'female').id, {}
-      = f.label :female
+      - female = GenderType.find_by(type: 'female')
+      = f.radio_button :gender, female.id, {}
+      = female.name
   .form-group
     = f.submit class: 'btn btn-primary'

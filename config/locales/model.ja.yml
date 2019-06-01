@@ -1,0 +1,43 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー情報
+      skillsheet: スキルシート情報
+      work_content: 業務内容情報
+    attributes:
+      user:
+        name: 氏名
+        name_kana: 氏名（カナ）
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        birthday: 生年月日
+        gender: 性別
+        role: 権限
+      skillsheet:
+        final_education: 最終学歴
+        address: 現住所
+        nearest_station_line: 最寄駅（線）
+        nearest_station: 最寄駅（駅）
+        specialty: 得意分野
+        business_knowledge: 業務知識
+        appeal_point: アピールポイント
+        license: 保有資格
+        note: 備考
+      work_content:
+        start_month: 開始月
+        end_month: 終了月
+        name: 業務名
+        industry: 業界
+        os: OS
+        nw: NW
+        db: DB
+        language: 言語
+        other: その他
+        team_person: チーム人数
+        position: ポジション
+        own_phase: 担当フェーズ
+        content: 業務内容
+      gender_type:
+        male: 男
+        female: 女
