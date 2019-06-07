@@ -22,6 +22,8 @@
 #
 
 class WorkContent < ApplicationRecord
+  acts_as_paranoid
+
   belongs_to :skillsheet
 
   PERMITTED_ATTRIBUTES = %i[start_month end_month name skillsheet_id industry

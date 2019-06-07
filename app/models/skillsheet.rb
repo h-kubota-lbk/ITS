@@ -18,7 +18,7 @@
 #
 
 class Skillsheet < ApplicationRecord
-  # acts_as_paranoid
+  acts_as_paranoid
 
   belongs_to :user
   has_many :work_contents, dependent: :destroy
