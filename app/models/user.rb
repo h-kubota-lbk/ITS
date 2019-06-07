@@ -20,7 +20,7 @@ class User < ApplicationRecord
   acts_as_paranoid
   has_secure_password validations: true
 
-  has_one :skillsheet
+  has_one :skillsheet, dependent: :destroy
   PERMITTED_ATTRIBUTES = %i[name name_kana email password password_confirmation
                             birthday gender role].freeze
 

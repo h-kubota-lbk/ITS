@@ -33,6 +33,8 @@ group :development, :test do
   gem 'pry-doc'
   gem 'annotate'
   gem 'migration_comments'
+  gem 'rspec-rails'
+  gem 'rubocop-rspec'
 end
 
 group :development do
@@ -41,6 +43,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop'
+  gem 'rubocop-rails'
 end
 
 

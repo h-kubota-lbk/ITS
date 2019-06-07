@@ -21,7 +21,7 @@ class Skillsheet < ApplicationRecord
   # acts_as_paranoid
 
   belongs_to :user
-  has_many :work_contents
+  has_many :work_contents, dependent: :destroy
 
   PERMITTED_ATTRIBUTES = %i[user_id final_education address nearest_station_line
                             nearest_station specialty business_knowledge appeal_point license note].freeze
