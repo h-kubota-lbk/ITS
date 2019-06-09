@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_114700) do
+ActiveRecord::Schema.define(version: 2019_06_09_061343) do
 
   create_table "skillsheets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "スキルシート情報", force: :cascade do |t|
     t.bigint "user_id", null: false, comment: "ユーザID"
@@ -28,6 +28,54 @@ ActiveRecord::Schema.define(version: 2019_06_07_114700) do
     t.datetime "deleted_at"
     t.index ["deleted_at"], name: "index_skillsheets_on_deleted_at"
     t.index ["user_id"], name: "index_skillsheets_on_user_id"
+  end
+
+  create_table "time_table_rows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "勤怠表一列情報", force: :cascade do |t|
+    t.bigint "time_table_id", null: false, comment: "勤怠表ID"
+    t.date "day", comment: "年月日"
+    t.datetime "start_at", comment: "開始時間"
+    t.datetime "end_at", comment: "終了時間"
+    t.datetime "break_time", comment: "休憩時間"
+    t.integer "attend_status", comment: "勤怠ステータス"
+    t.integer "note", comment: "備考"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_time_table_rows_on_deleted_at"
+    t.index ["time_table_id"], name: "index_time_table_rows_on_time_table_id"
+  end
+
+  create_table "time_tables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "勤怠表情報", force: :cascade do |t|
+    t.string "project_name", null: false, comment: "プロジェクト名"
+    t.bigint "user_id", null: false, comment: "ユーザーID"
+    t.integer "time_table_type", null: false, comment: "勤怠ステータス"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_time_tables_on_deleted_at"
+    t.index ["user_id"], name: "index_time_tables_on_user_id"
+  end
+
+  create_table "transport_cost_rows", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "交通費表表一列情報", force: :cascade do |t|
+    t.bigint "time_table_id", null: false, comment: "勤怠表ID"
+    t.date "day", comment: "年月日"
+    t.string "route", comment: "経路"
+    t.integer "transport_type", comment: "交通手段（1:JR,2:航空機,3:私鉄,4:バス,5:タクシー,6:その他）"
+    t.decimal "cost", precision: 15, scale: 2, comment: "交通費"
+    t.decimal "lodging_cost", precision: 15, scale: 2, comment: "宿泊費"
+    t.integer "note", comment: "備考"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["time_table_id"], name: "index_transport_cost_rows_on_time_table_id"
+  end
+
+  create_table "transport_costs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "交通費表情報", force: :cascade do |t|
+    t.bigint "time_table_id", null: false, comment: "勤怠表ID"
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_transport_costs_on_deleted_at"
+    t.index ["time_table_id"], name: "index_transport_costs_on_time_table_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", comment: "ユーザ情報", force: :cascade do |t|
@@ -68,5 +116,9 @@ ActiveRecord::Schema.define(version: 2019_06_07_114700) do
   end
 
   add_foreign_key "skillsheets", "users"
+  add_foreign_key "time_table_rows", "time_tables"
+  add_foreign_key "time_tables", "users"
+  add_foreign_key "transport_cost_rows", "time_tables"
+  add_foreign_key "transport_costs", "time_tables"
   add_foreign_key "work_contents", "skillsheets"
 end
