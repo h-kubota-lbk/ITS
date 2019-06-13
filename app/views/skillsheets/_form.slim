@@ -5,7 +5,7 @@
         = f.object.errors.full_messages.each do |message|
           li = message
   - if action_name == 'new'
-    = f.hidden_field :user_id, value: @user_id
+    = f.hidden_field :user_id, value: @user.id
   .form-group
     = f.label :final_education
     = f.text_field :final_education, class: 'form-control'

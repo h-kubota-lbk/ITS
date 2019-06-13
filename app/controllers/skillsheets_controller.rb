@@ -19,6 +19,7 @@ class SkillsheetsController < ApplicationController
     if @skillsheet.save
       redirect_to skillsheets_path, notice: '登録しました。'
     else
+      @user = User.find(params[:user_id])
       render :new
     end
   end
