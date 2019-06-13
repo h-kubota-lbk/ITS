@@ -58,4 +58,10 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::FileUpdateChecker
+
+  config.assets.configure do |env|
+    env.cache = Sprockets::Cache::FileStore.new(
+      File.join(ENV['RAILS_TMP'], 'cache/assets')
+    )
+  end if ENV['RAILS_TMP']
 end

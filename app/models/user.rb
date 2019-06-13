@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_secure_password validations: true
 
   has_one :skillsheet, dependent: :destroy
+  has_many :time_tables
+
   PERMITTED_ATTRIBUTES = %i[name name_kana email password password_confirmation
                             birthday gender role].freeze
 
