@@ -61,7 +61,7 @@ Rails.application.configure do
 
   config.assets.configure do |env|
     env.cache = Sprockets::Cache::FileStore.new(
-      File.join(ENV['RAILS_TMP'], 'cache/assets')
+      File.join('/var/tmp', 'cache/assets')
     )
-  end if ENV['RAILS_TMP']
+  end
 end
