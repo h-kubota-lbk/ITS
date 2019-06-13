@@ -10,4 +10,5 @@
 #
 
 class TransportCost < ApplicationRecord
+  belongs_to :time_table
 end
