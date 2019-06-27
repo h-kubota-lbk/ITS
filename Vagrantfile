@@ -17,7 +17,6 @@ Vagrant.configure('2') do |config|
       apt-transport-https ca-certificates curl gnupg-agent \
       software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-    sudo apt-key fingerprint 0EBFCD88
     add-apt-repository "deb [arch=amd64] \
       https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     apt-get update
@@ -25,6 +24,6 @@ Vagrant.configure('2') do |config|
     apt install -y mysql-client-core-5.7
     gpasswd -a vagrant docker
     echo fs.inotify.max_user_watches=524288 | \
-      sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+      tee -a /etc/sysctl.conf && sysctl -p
   SHELL
 end
