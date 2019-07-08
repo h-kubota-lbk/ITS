@@ -6,14 +6,21 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag    'scss/sessions', media: 'all'
+    = stylesheet_link_tag    'scss/common', media: 'all'
+    = stylesheet_link_tag    'js/jqGrid/jquery-ui.min',  media: 'all'
+    = stylesheet_link_tag    'js/jqGrid/css/ui.jqgrid',  media: 'all'
     = javascript_include_tag 'application'
-  body
+    = javascript_include_tag 'js/jquery/jquery-3.4.1.min'
+    = javascript_include_tag 'js/common'
+
+  body class = controller.controller_name
     nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
       .container
         = link_to 'Home', root_path, class: 'navbar-brand'
         ul.navbar-nav
-          li.nav-item = link_to 'ユーザー一覧', users_path
-          li.nav-item = link_to 'スキルシート一覧', skillsheets_path
+          li.nav-item = link_to 'ユーザー一覧', users_path , id: 'nav-before', class: 'nav-link'
+          li.nav-item = link_to 'スキルシート一覧', skillsheets_path, id: 'nav-after', class: 'nav-link'
           li.nav-item = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
     main.container
       - flash.each do |key, val|
@@ -22,3 +29,4 @@ html
         = content_tag :div, val, class: "alert alert-#{key}"
       == breadcrumbs  separator: " &rsaquo; "
       = yield
+

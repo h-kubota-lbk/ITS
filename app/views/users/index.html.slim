@@ -1,34 +1,26 @@
-- _label = 'activerecord.attributes.user'
+.grid-container
+  table.table.table-striped
+  #pager1
 
-- breadcrumb :users
+.underLink
+  = link_to 'New User', new_user_path
 
-table.table.table-striped
-  thead
-    tr
-      th = t("#{_label}.name")
-      th = t("#{_label}.email")
-      th = t("#{_label}.gender")
-      th = t("#{_label}.birthday")
-      th
-        | アクション
-      th
-        | スキルシート
-  tbody
-    - @users.each do |user|
-      tr
-        td = user.name
-        td = user.email
-        td = GenderType.find_by(id: user.gender).name
-        td = user.birthday
-        td
-          = link_to 'Show', user, user_id: user.id
-          | /
-          = link_to 'Edit', edit_user_path(user)
-          | /
-          = link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-        td
-          - if user.skillsheet.present?
-            = link_to 'リンク', user.skillsheet
-          - else
-            = link_to '新規作成', new_skillsheet_path(user_id: user.id)
-= link_to 'New User', new_user_path
+- @users.each do |user|
+  - if user.skillsheet.present?
+    = content_tag :div, 'false', class: 'newFlg', id: 'newFlg_' + user.id.to_s
+  - else
+    = content_tag :div, 'true', class: 'newFlg', id: 'newFlg_' + user.id.to_s
+
+= javascript_include_tag 'js/jqGrid/js/jquery-1.11.0.min'
+= javascript_include_tag 'js/jqGrid/js/jquery.jqGrid.min'
+= javascript_include_tag 'js/jqGrid/js/i18n/grid.locale-ja'
+= javascript_include_tag 'js/users'
+
+javascript:
+  $(document).ready(function(){
+  var data = #{{@users.to_json}};
+  var myCom = new common();
+  var myUsers = new users(myCom);
+  myUsers.indexInit(data);
+  });
+  
