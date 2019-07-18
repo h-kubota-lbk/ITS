@@ -24,6 +24,8 @@ class Skillsheet < ApplicationRecord
   belongs_to :user
   has_many :work_contents, dependent: :destroy
 
+  delegate :name, to: :user, prefix: true
+
   PERMITTED_ATTRIBUTES = %i[user_id final_education address nearest_station_line
                             nearest_station specialty business_knowledge appeal_point license note].freeze
 end

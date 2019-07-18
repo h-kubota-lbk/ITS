@@ -28,7 +28,7 @@ crumb :skillsheets do
 end
 
 crumb :skillsheet do |skillsheet|
-  link "#{skillsheet.user.name}さんのスキルシート", skillsheet
+  link "#{skillsheet.user_name}さんのスキルシート", skillsheet
   parent :skillsheets
 end
 
@@ -38,7 +38,7 @@ crumb :new_skillsheet do |user|
 end
 
 crumb :edit_skillsheet do |skillsheet|
-  link "#{skillsheet.user.name}さんのスキルシート", edit_skillsheet_path(skillsheet)
+  link "#{skillsheet.user_name}さんのスキルシート", edit_skillsheet_path(skillsheet)
   parent :skillsheets
 end
 

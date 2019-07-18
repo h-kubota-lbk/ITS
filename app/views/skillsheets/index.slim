@@ -10,7 +10,7 @@ table.table.table-striped
   tbody
     - @skillsheets.each do |skillsheet|
       tr
-        td = skillsheet.user.name
+        td = skillsheet.user_name
         td
           = link_to 'Show', skillsheet
           | /

@@ -52,6 +52,7 @@ group :development do
   gem 'rack-mini-profiler'
   gem 'bullet'
   gem 'license_finder'
+  gem 'rails_best_practices', require: false
 end
 
 
