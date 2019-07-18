@@ -35,6 +35,7 @@ group :development, :test do
   gem 'migration_comments'
   gem 'rspec-rails'
   gem 'rubocop-rspec'
+  gem 'rufo'
 end
 
 group :development do
@@ -46,6 +47,11 @@ group :development do
   gem 'rubocop-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'brakeman'
+  gem 'bundler-audit'
+  gem 'rack-mini-profiler'
+  gem 'bullet'
+  gem 'license_finder'
 end
 
 
