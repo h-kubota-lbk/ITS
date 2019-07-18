@@ -64,4 +64,6 @@ Rails.application.configure do
       File.join('/var/tmp', 'cache/assets')
     )
   end
+
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 end
