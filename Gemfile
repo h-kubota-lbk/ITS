@@ -53,6 +53,8 @@ group :development do
   gem 'bullet'
   gem 'license_finder'
   gem 'rails_best_practices', require: false
+  gem 'capistrano', '~> 3.10', require: false
+  gem 'capistrano-rails', '~> 1.4', require: false
 end
 
 
