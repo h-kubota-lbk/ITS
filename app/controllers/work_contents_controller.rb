@@ -30,6 +30,6 @@ class WorkContentsController < ApplicationController
   private
 
   def work_content_params
-    params.permit(WorkContent::PERMITTED_ATTRIBUTES)
+    params.require(:work_content).permit(WorkContent::PERMITTED_ATTRIBUTES)
   end
 end
