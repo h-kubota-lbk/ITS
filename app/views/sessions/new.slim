@@ -1,14 +1,12 @@
 .form-wrapper
   h1 Sign In
   .form-group
-    .alertHere 　
+    .alert-here 　
     = form_with url: login_path, method: :post, local: true do |f|
       .form-group
         = f.text_field :email, class: 'form-control', id: 'email', placeholder: 'Email'
-
       .form-group
         = f.password_field :password, class: 'form-control', id: 'password', placeholder: 'Password'
-
       .form-group
         .col-sm
           = f.submit "ログイン", class: 'btn btn-primary'
@@ -17,9 +15,9 @@
 
 javascript:
   $(document).ready(function(){
-    var mySessions = new sessions();
+    let mySessions = new sessions();
 
-   $('.btn.btn-primary').click(function(e) {
-     mySessions.login_click(e);
-   });
+    $('.btn.btn-primary').click(function(e) {
+      mySessions.login_click(e);
+    });
   });

@@ -3,7 +3,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require js/jqGrid/js/jquery.jqGrid.min
-//= require js/jquery/jquery-3.4.1.min
-//= require js/jquery/jquery-1.12.3.min
+//= require jquery
+//= require jquery_ujs
 // require_tree .

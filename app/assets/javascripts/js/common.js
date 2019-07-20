@@ -16,11 +16,9 @@ var common = (function() {
 	common_inner.prototype = {
 
 		/**
-		 * jqGridの共通追加設定
+		 * common additional settings of jqGrid
 		 */
 		setGridOption : function() {
-			// jqGrid 追加設定
-			// フッターのボタン
 			$('.table.table-striped').jqGrid(
 					'navGrid',
 					'#pager1',
@@ -31,7 +29,7 @@ var common = (function() {
 						search : false
 					});
 
-			// リサイズ時イベント
+			// resize
 			$(window).bind(
 					'resize',
 					function() {
@@ -41,20 +39,18 @@ var common = (function() {
 								$(window).height() - 280);
 					}).trigger('resize');
 
-			// 中央寄せ処理
+			// centralized processing
 			var checkWidth = function() {
-				// ブラウザの横幅を取得
+				// Get Browser Width
 				var browserWidth = $(window).width();
-				// 横幅を取得
+				// Get Browser width
 				var boxW = $(".table.table-striped").width();
-				// 左端から離す距離pxを計算
 				var plusPxW = ((browserWidth - boxW) / 2);
-				// CSSで追加
 				$('.table.table-striped').css({
 					'left' : plusPxW + "px"
 				});
 			}
-			// リサイズ
+			// resize processing
 			$(window).resize(checkWidth);
 		},
 

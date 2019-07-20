@@ -10,7 +10,8 @@ var sessions = (function() {
 	var sessions_inner = function() {
 
 		// navigate bar delete
-		$(".navbar").empty();
+		$(".navbar").remove();
+		// css set
 		$('body').css('background', '#e9e9e9');
 		$('body').css('color', '#5e5e5e');
 
@@ -32,11 +33,17 @@ var sessions = (function() {
 		if (alertVal) {
 			var alertHtml = $(alertVal).html();
 			$(alertVal).remove();
-			$('.alertHere').empty();
-			$('.alertHere').append(
+			$('.alert-here').empty();
+			$('.alert-here').append(
 					'<div class="alert.alert-danger" style="text-align:center; color:red;">'
 							+ alertHtml + '</div>');
-			$('.alertHere').trigger('create');
+			$('.alert-here').trigger('create');
+		}
+
+		var email = sessionStorage.getItem('email');
+		if (email) {
+			email = email.replace(/"/g, '');
+			$('#email').val(email);
 		}
 	};
 
@@ -52,14 +59,15 @@ var sessions = (function() {
 			var email = $('#email').val();
 			var password = $('#password').val();
 			if (email && password) {
+				sessionStorage.setItem('email', JSON.stringify(email));
 				return true;
 			} else {
 				e.preventDefault();
-				$('.alertHere').empty();
-				$('.alertHere')
+				$('.alert-here').empty();
+				$('.alert-here')
 						.append(
 								'<div class="alert.alert-danger" style="text-align:center; color:red;">EmailとPasswordは入力必須です。</div>');
-				$('.alertHere').trigger('create');
+				$('.alert-here').trigger('create');
 				return false;
 			}
 		}

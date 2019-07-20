@@ -2,14 +2,13 @@
   table.table.table-striped
   #pager1
 
-.underLink
-  = link_to 'New User', new_user_path
+= link_to 'New User', new_user_path
 
 - @users.each do |user|
   - if user.skillsheet.present?
-    = content_tag :div, 'false', class: 'newFlg', id: 'newFlg_' + user.id.to_s
+    = hidden_field_tag 'new-or-show-' + user.id.to_s, 'show', class: 'new-or-show'
   - else
-    = content_tag :div, 'true', class: 'newFlg', id: 'newFlg_' + user.id.to_s
+    = hidden_field_tag 'new-or-show-' + user.id.to_s, 'new', class: 'new-or-show'
 
 = javascript_include_tag 'js/jqGrid/js/jquery-1.11.0.min'
 = javascript_include_tag 'js/jqGrid/js/jquery.jqGrid.min'
@@ -18,9 +17,8 @@
 
 javascript:
   $(document).ready(function(){
-  var data = #{{@users.to_json}};
-  var myCom = new common();
-  var myUsers = new users(myCom);
-  myUsers.indexInit(data);
+    let data = #{{@users.to_json}};
+    let myCom = new common();
+    let myUsers = new users(myCom);
+    myUsers.indexInit(data);
   });
-  

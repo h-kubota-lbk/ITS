@@ -7,10 +7,10 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = stylesheet_link_tag    'scss/sessions', media: 'all'
-    = stylesheet_link_tag    'scss/common', media: 'all'
+    = stylesheet_link_tag    'scss/skillsheets', media: 'all'
     = stylesheet_link_tag    'js/jqGrid/jquery-ui.min',  media: 'all'
     = stylesheet_link_tag    'js/jqGrid/css/ui.jqgrid',  media: 'all'
-    = javascript_include_tag 'application'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'js/jquery/jquery-3.4.1.min'
     = javascript_include_tag 'js/common'
 

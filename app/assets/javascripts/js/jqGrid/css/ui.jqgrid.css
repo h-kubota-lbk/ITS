@@ -204,6 +204,14 @@
 	
 }
 
+.ui-jqgrid tr {
+	background: #fff;
+}
+
+.ui-jqgrid tr:nth-child(2n+1) {
+	background: #f1f6fc;
+}
+
 .ui-jqgrid .ui-search-table td.ui-search-clear {
 	width: 25px;
 }
