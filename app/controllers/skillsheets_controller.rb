@@ -5,7 +5,14 @@ class SkillsheetsController < ApplicationController
     @skillsheets = Skillsheet.all
   end
 
-  def show; end
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'sample'
+      end
+    end
+  end
 
   def print; end
 

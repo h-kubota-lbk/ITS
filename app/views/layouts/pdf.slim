@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title
+      | PDF
+    = csrf_meta_tags
+    = csp_meta_tag
+    = wicked_pdf_stylesheet_link_tag 'pdf'
+    = wicked_pdf_javascript_include_tag 'number_pages'
+  body onload = 'number_pages'
+    #header
+      = wicked_pdf_image_tag 'mysite.jpg'
+    .container
+      = yield
