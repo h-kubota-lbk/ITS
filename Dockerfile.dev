@@ -7,7 +7,9 @@ RUN apt-get update -qq && \
     apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
+    fonts-ipafont fonts-ipaexfont \
     libfontconfig1 && \
+    fc-cache -fv && \
     rm -rf /var/lib/apt/lists/*
 
 ENV ENTRYKIT_VERSION 0.4.0

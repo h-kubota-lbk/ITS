@@ -11,7 +11,8 @@ class SkillsheetsController < ApplicationController
       format.pdf do
         render pdf: 'skillsheet',
                layout: 'pdf.slim',
-               template: 'skillsheets/show.pdf.slim'
+               template: 'skillsheets/show.pdf.slim',
+               encoding: 'UTF-8'
       end
     end
   end
