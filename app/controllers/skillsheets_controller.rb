@@ -9,7 +9,9 @@ class SkillsheetsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: 'sample'
+        render pdf: 'skillsheet',
+               layout: 'pdf.slim',
+               template: 'skillsheets/show.pdf.slim'
       end
     end
   end

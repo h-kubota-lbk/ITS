@@ -21,7 +21,7 @@
   .col-sm-9 = @skillsheet.license
   .col-sm-3 = t("#{_label}.note")
   .col-sm-9 = @skillsheet.note
-
+.row
   table
     thead
       th = WorkContent.human_attribute_name(:start_month)
@@ -53,4 +53,7 @@
           td  = wc.position
           td  = wc.own_phase
           td  = wc.content
-= link_to '新しい業務内容の登録', new_work_content_path(skillsheet_id: @skillsheet.id)
+p
+  = link_to 'PDF出力', skillsheet_path(@skillsheet, format: :pdf)
+p
+  = link_to '新しい業務内容の登録', new_work_content_path(skillsheet_id: @skillsheet.id)
