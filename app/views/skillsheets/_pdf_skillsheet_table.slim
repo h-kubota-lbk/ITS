@@ -1,0 +1,64 @@
+table border = 1
+  tbody
+    tr
+      th rowspan = 2
+        | フリガナ
+      td rowspan = 2
+        = skillsheet.user_name_kana
+      th rowspan = 2
+        | 性別
+      td rowspan = 2
+        = GenderType.find(skillsheet.user_gender).name
+      th
+        | 生年月日
+      td = l(skillsheet.user_birthday, format: :pdf)
+      th rowspan = 2
+        | 最終学歴
+      td rowspan = 2 colspan = 4
+        = "#{skillsheet.final_education} 卒"
+    tr
+      th
+        | 年齢
+      td = skillsheet.user_age
+    tr
+      th
+        | 氏名
+      - # TODO: イニシャルのカラム必要かも？
+      td = skillsheet.user_name
+      th
+        | 現住所
+      td colspan = 3
+        = skillsheet.address
+      th
+        | 最寄駅
+      td = skillsheet.nearest_station
+      th
+        | 線
+      td = skillsheet.nearest_station_line
+      th
+        | 駅
+      tr
+        th
+          | 得意分野
+        td colspan = 10
+          = skillsheet.specialty
+      tr
+        th
+          | 業務知識
+        td colspan = 10
+          = skillsheet.business_knowledge
+      tr
+        th
+          | アピールポイント
+        td colspan = 10
+          = skillsheet.appeal_point
+      tr
+        th
+          | 保有資格
+        td colspan = 10
+          = skillsheet.license
+      tr
+        th
+          | 備考
+        td colspan = 10
+          = skillsheet.note

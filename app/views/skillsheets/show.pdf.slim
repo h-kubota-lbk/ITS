@@ -1,26 +1,9 @@
 .row
   h1 職務・技術経歴書
+.row style = 'margin-bottom: 20px'
+  = render 'pdf_skillsheet_table', skillsheet: @skillsheet
 .row
-  table
-    tbody
-      tr
-        td rowspan = 2
-          | フリガナ
-        td rowspan = 2
-          = "フリガナ"
-        td rowspan = 2
-          | 性別
-        td rowspan = 2
-          = "性別"
-        td
-          | 生年月日
-        td
-          = "生年月日"
-        td
-          | 年齢
-        td
-          = "年齢"
-        td rowspan = 2
-          | 最終学歴
-        td rowspan = 2
-          = "最終学歴"
+  = render partial: 'pdf_work_content_table',
+    collection: @skillsheet.work_contents, as: :work_content
+
+= render 'pdf_css'

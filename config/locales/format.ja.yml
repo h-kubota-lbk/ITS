@@ -1,0 +1,6 @@
+ja:
+  date:
+    formats:
+      pdf: '%Y'
+      pdf_jp: '%Y年%m月'
+      calc: '%y%m%d'

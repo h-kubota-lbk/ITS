@@ -1,6 +1,6 @@
 User.create(
-  name: 'テスト',
-  name_kana: '太郎',
+  name: 'テスト太郎',
+  name_kana: '',
   email: 'admin1@example.com',
   password: 'password',
   password_confirmation: 'password',

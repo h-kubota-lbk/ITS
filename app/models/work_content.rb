@@ -29,4 +29,9 @@ class WorkContent < ApplicationRecord
 
   PERMITTED_ATTRIBUTES = %i[start_month end_month name skillsheet_id industry
                             os nw db language other team_person position own_phase content].freeze
+  def term
+    return nil if end_month.nil? || start_month.nil?
+
+    (end_month.year - start_month.year) * 12 + end_month.month + (13 - start_month.month)
+  end
 end
