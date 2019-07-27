@@ -15,7 +15,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 gem 'bcrypt', '~> 3.1.7'
 # gem 'mini_magick', '~> 4.8'
-# gem 'capistrano-rails', group: :development
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'slim-rails'
 gem 'html2slim'
