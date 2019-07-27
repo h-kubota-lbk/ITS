@@ -22,7 +22,7 @@ html
                 = link_to 'ユーザー一覧', users_path, class: 'nav-link'
               li.nav-item
                 = link_to 'スキルシート一覧', skillsheets_path, class: 'nav-link'
-        main.col-md-9.ml-sl-auto.col-lg-10.pt-3.px-4
+        main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4
           - flash.each do |key, val|
             - key = "info" if key == "notice"
             - key = "danger" if key == "alert"
