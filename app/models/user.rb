@@ -35,4 +35,8 @@ class User < ApplicationRecord
   def self.encrypt(token)
     Digest::SHA256.hexdigest(token.to_s)
   end
+
+  def age
+    (Date.today - birthday).to_i / 365
+  end
 end

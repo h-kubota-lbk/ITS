@@ -27,8 +27,6 @@ class WorkContent < ApplicationRecord
 
   belongs_to :skillsheet
 
-  PERMITTED_ATTRIBUTES = %i[start_month end_month name skillsheet_id industry
-                            os nw db language other team_person position own_phase content].freeze
   def term
     return nil if end_month.nil? || start_month.nil?
 

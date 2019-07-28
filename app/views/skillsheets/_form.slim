@@ -6,7 +6,14 @@
           li = message
   - if action_name == 'new'
     = f.hidden_field :user_id, value: user.id
-  = render 'skillsheet_form', f: f
-  = f.fields_for :work_contents do |fi|
-    = render 'work_content_form', f: fi
-  = f.submit "登録", class: 'btn btn-primary'
+  fieldset#skillsheet_field
+    legend
+      | スキルシート概要
+    = render 'skillsheet_form', f: f, skillsheet: skillsheet, user: user
+  fieldset#work_content_field
+    legend
+      | 業務内容詳細
+    = f.fields_for :work_contents do |fi|
+      = render 'work_content_form', f: fi
+  #submit_button
+    = f.submit "登録", class: 'btn btn-primary'

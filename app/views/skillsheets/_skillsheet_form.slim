@@ -1,28 +1,69 @@
-.form-group
-  = f.label :final_education
-  = f.text_field :final_education, class: 'form-control'
-.form-group
-  = f.label :address
-  = f.text_field :address, class: 'form-control'
-.form-group
-  = f.label :nearest_station_line
-  = f.text_field :nearest_station_line, class: 'form-control'
-.form-group
-  = f.label :nearest_station
-  = f.text_field :nearest_station, class: 'form-control'
-.form-group
-  = f.label :specialty
-  = f.text_field :specialty, class: 'form-control'
-.form-group
-  = f.label :business_knowledge
-  = f.text_field :business_knowledge, class: 'form-control'
-.form-group
-  = f.label :appeal_point
-  = f.text_field :appeal_point, class: 'form-control'
-.form-group
-  = f.label :license
-  = f.text_field :license, class: 'form-control'
-.form-group
-  = f.label :note
-  = f.text_field :note, class: 'form-control'
-.form-group
+table border = 1
+  tbody
+    tr
+      th.text-center rowspan = 2
+        | フリガナ
+      td.text-center rowspan = 2
+        = user.name_kana
+      th.text-center rowspan = 2
+        | 性別
+      td.text-center rowspan = 2
+        = GenderType.find(user.gender).name
+      th.text-center.small
+        | 生年月日
+      td.text-center.small
+        = l(user.birthday, format: :pdf)
+      th.text-center rowspan = 2
+        | 最終学歴
+      td.text-center rowspan = 2 colspan = 4
+        = f.text_field :final_education, class: 'form-control'
+    tr
+      th.text-center.small
+        | 年齢
+      td.text-center.small
+        = user.age
+    tr
+      th.text-center
+        | 氏名
+      - # TODO: イニシャルのカラム必要かも？
+      td.text-center
+        = user.name
+      th.text-center
+        | 現住所
+      td.text-center colspan = 3
+        = f.text_field :address, class: 'form-control'
+      th.text-center
+        | 最寄駅
+      td.text-center
+        = f.text_field :nearest_station_line, class: 'form-control'
+      th.text-center
+        | 線
+      td.text-center
+        = f.text_field :nearest_station, class: 'form-control'
+      th.text-center
+        | 駅
+      tr.text-center
+        th.text-center
+          | 得意分野
+        td.text-left colspan = 10
+          = f.text_area :specialty, class: 'form-control'
+      tr
+        th.text-center
+          | 業務知識
+        td.text-left colspan = 10
+          = f.text_area :business_knowledge, class: 'form-control'
+      tr
+        th.text-center
+          | アピールポイント
+        td.text-left colspan = 10
+          = f.text_area :appeal_point, class: 'form-control'
+      tr
+        th.text-center
+          | 保有資格
+        td.text-left colspan = 10
+          = f.text_field :license, class: 'form-control'
+      tr
+        th.text-center
+          | 備考
+        td.text-left colspan = 10
+          = f.text_area :note, class: 'form-control'

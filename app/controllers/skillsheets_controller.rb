@@ -35,7 +35,9 @@ class SkillsheetsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @skillsheet.work_contents.build if @skillsheet.work_contents.blank?
+  end
 
   def update
     if @skillsheet.update(skillsheet_params)
@@ -52,6 +54,15 @@ class SkillsheetsController < ApplicationController
   end
 
   def skillsheet_params
-    params.require(:skillsheet).permit(Skillsheet::PERMITTED_ATTRIBUTES)
+    params.require(:skillsheet).permit(skillsheet_permitted_attributes)
+  end
+
+  def skillsheet_permitted_attributes
+    skill_attr = %i[user_id final_education address nearest_station_line
+                    nearest_station specialty business_knowledge appeal_point
+                    license note]
+    content_attr = %i[start_month end_month name skillsheet_id industry
+                      os nw db language other team_person position own_phase content]
+    skill_attr.concat([work_contents_attributes: content_attr])
   end
 end

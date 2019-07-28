@@ -3,8 +3,9 @@
 - content_for :page_content do
   = link_to 'PDF出力', skillsheet_path(@skillsheet, format: :pdf)
 
-
 = render 'pdf_skillsheet_table', skillsheet: @skillsheet
 
 = render partial: 'pdf_work_content_table',
   collection: @skillsheet.work_contents, as: :work_content
+
+= render 'pdf_css'

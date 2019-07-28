@@ -1,41 +1,70 @@
-.form-group
-  = f.label :start_month
-  = f.month_field :start_month, class: 'form-control'
-.form-group
-  = f.label :end_month
-  = f.month_field :end_month, class: 'form-control'
-.form-group
-  = f.label :name
-  = f.text_field :name, class: 'form-control'
-.form-group
-  = f.label :industry
-  = f.text_field :industry, class: 'form-control'
-.form-group
-  = f.label :os
-  = f.text_area :os, class: 'form-control'
-.form-group
-  = f.label :nw
-  = f.text_area :nw, class: 'form-control'
-.form-group
-  = f.label :db
-  = f.text_area :db, class: 'form-control'
-.form-group
-  = f.label :language
-  = f.text_area :language, class: 'form-control'
-.form-group
-  = f.label :other
-  = f.text_area :other, class: 'form-control'
-.form-group
-  = f.label :team_person
-  = f.number_field :team_person, class: 'form-control'
-.form-group
-  = f.label :position
-  = f.text_field :position, class: 'form-control'
-.form-group
-  = f.label :own_phase
-  = f.text_field :own_phase, class: 'form-control'
-.form-group
-  = f.label :content
-  = f.text_area :content, class: 'form-control'
-.form-group
-  = f.submit class: 'btn btn-primary'
+table border = 1
+  tbody
+    tr
+      th.text-center.small
+        | NO
+      th.text-center.small colspan = 7
+        | 開始終了年月・期間
+      th.text-center.small
+        | 業務名
+      th.text-center.small
+        | 業界
+      th.text-center.small
+        | OS
+      th.text-center.small
+        | NW
+      th.text-center.small
+        | DB
+      th.text-center.small
+        | 言語
+      th.text-center.small
+        | その他
+    tr
+      th.text-center.small rowspan = 5
+        | 1
+      td colspan = 3
+        = f.month_field :start_month, class: 'form-control'
+      td.text-center.small colspan = 1
+        | ~
+      td colspan = 3
+        = f.month_field :end_month, class: 'form-control'
+      td rowspan = 2
+        = f.text_field :name, class: 'form-control'
+      td rowspan = 2
+        = f.text_field :industry, class: 'form-control'
+      td rowspan = 2
+        = f.text_area :os, class: 'form-control'
+      td rowspan = 2
+        = f.text_area :nw, class: 'form-control'
+      - # TODO: 言語とかその他は別テーブルで管理したほうがよさそう
+      - # TODO: もしくはカンマ区切りで管理
+      td rowspan = 2
+        = f.text_area :db, class: 'form-control'
+      td rowspan = 2
+        = f.text_area :language, class: 'form-control'
+      td rowspan = 2
+        = f.text_area :other, class: 'form-control'
+    tr
+      td.text-center.small colspan = 7
+        | -
+    tr
+      th.text-center rowspan = 3 colspan = 2
+        | 業務内容
+      td.text-center colspan = 3
+        | チーム人数
+      td colspan = 1
+        = f.number_field :team_person, class: 'form-control'
+      td.text-center colspan = 1
+        | 人
+      td rowspan = 2 colspan = 7
+        = f.text_area :content, class: 'form-control'
+    tr
+      td.text-center colspan = 3
+        | ポジション
+      td colspan = 2
+        = f.text_field :position, class: 'form-control'
+    tr
+      td.text-center colspan = 5
+        | 担当フェーズ
+      td colspan = 7
+        = f.text_field :own_phase, class: 'form-control'
