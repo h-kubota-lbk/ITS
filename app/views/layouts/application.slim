@@ -10,9 +10,11 @@ html
   body style = 'margin-right: 0'
     nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0
       = link_to 'ITS', root_path, class: 'navbar-brand col-sm-3 col-md-2 mr-0'
-      .col-md-8.col-sm-6
+      .col-md-6
         == breadcrumbs  separator: " &rsaquo; "
-      .col-md-2.col-sm-3
+      .col-md-2
+        = yield :page_content
+      .col-md-2
         ul.navbar-nav.px-3
           li.nav-item.text-nowrap
             = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'

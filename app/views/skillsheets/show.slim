@@ -1,59 +1,10 @@
 - _label = 'activerecord.attributes.skillsheet'
-
 - breadcrumb :skillsheet, @skillsheet
-
-.row
-  .col-sm-3 = t("#{_label}.final_education")
-  .col-sm-9 = @skillsheet.final_education
-  .col-sm-3 = t("#{_label}.address")
-  .col-sm-9 = @skillsheet.address
-  .col-sm-3 = t("#{_label}.nearest_station_line")
-  .col-sm-9 = @skillsheet.nearest_station_line
-  .col-sm-3 = t("#{_label}.nearest_station")
-  .col-sm-9 = @skillsheet.nearest_station
-  .col-sm-3 = t("#{_label}.specialty")
-  .col-sm-9 = @skillsheet.specialty
-  .col-sm-3 = t("#{_label}.business_knowledge")
-  .col-sm-9 = @skillsheet.business_knowledge
-  .col-sm-3 = t("#{_label}.appeal_point")
-  .col-sm-9 = @skillsheet.appeal_point
-  .col-sm-3 = t("#{_label}.license")
-  .col-sm-9 = @skillsheet.license
-  .col-sm-3 = t("#{_label}.note")
-  .col-sm-9 = @skillsheet.note
-.row
-  table
-    thead
-      th = WorkContent.human_attribute_name(:start_month)
-      th = WorkContent.human_attribute_name(:end_month)
-      th = WorkContent.human_attribute_name(:name)
-      th = WorkContent.human_attribute_name(:industry)
-      th = WorkContent.human_attribute_name(:os)
-      th = WorkContent.human_attribute_name(:nw)
-      th = WorkContent.human_attribute_name(:db)
-      th = WorkContent.human_attribute_name(:language)
-      th = WorkContent.human_attribute_name(:other)
-      th = WorkContent.human_attribute_name(:team_person)
-      th = WorkContent.human_attribute_name(:position)
-      th = WorkContent.human_attribute_name(:own_phase)
-      th = WorkContent.human_attribute_name(:content)
-    tbody
-      - @skillsheet.work_contents.each do |wc|
-        tr
-          td = wc.start_month
-          td = wc.end_month
-          td  = wc.name
-          td  = wc.industry
-          td  = wc.os
-          td  = wc.nw
-          td  = wc.db
-          td  = wc.language
-          td  = wc.other
-          td  = wc.team_person
-          td  = wc.position
-          td  = wc.own_phase
-          td  = wc.content
-p
+- content_for :page_content do
   = link_to 'PDF出力', skillsheet_path(@skillsheet, format: :pdf)
-p
-  = link_to '新しい業務内容の登録', new_work_content_path(skillsheet_id: @skillsheet.id)
+
+
+= render 'pdf_skillsheet_table', skillsheet: @skillsheet
+
+= render partial: 'pdf_work_content_table',
+  collection: @skillsheet.work_contents, as: :work_content
