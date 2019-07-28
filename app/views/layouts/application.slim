@@ -10,9 +10,12 @@ html
   body style = 'margin-right: 0'
     nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0
       = link_to 'ITS', root_path, class: 'navbar-brand col-sm-3 col-md-2 mr-0'
-      ul.navbar-nav.px-3
-        li.nav-item.text-nowrap
-          = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+      .col-md-8.col-sm-6
+        == breadcrumbs  separator: " &rsaquo; "
+      .col-md-2.col-sm-3
+        ul.navbar-nav.px-3
+          li.nav-item.text-nowrap
+            = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
     .container-fluid
       .row
         nav.col-md-2.d-none.d-md-block.bg-light.sidebar
@@ -27,5 +30,4 @@ html
             - key = "info" if key == "notice"
             - key = "danger" if key == "alert"
             = content_tag :div, val, class: "alert alert-#{key}"
-          == breadcrumbs  separator: " &rsaquo; "
           = yield

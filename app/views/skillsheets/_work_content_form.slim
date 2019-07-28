@@ -1,0 +1,41 @@
+.form-group
+  = f.label :start_month
+  = f.month_field :start_month, class: 'form-control'
+.form-group
+  = f.label :end_month
+  = f.month_field :end_month, class: 'form-control'
+.form-group
+  = f.label :name
+  = f.text_field :name, class: 'form-control'
+.form-group
+  = f.label :industry
+  = f.text_field :industry, class: 'form-control'
+.form-group
+  = f.label :os
+  = f.text_area :os, class: 'form-control'
+.form-group
+  = f.label :nw
+  = f.text_area :nw, class: 'form-control'
+.form-group
+  = f.label :db
+  = f.text_area :db, class: 'form-control'
+.form-group
+  = f.label :language
+  = f.text_area :language, class: 'form-control'
+.form-group
+  = f.label :other
+  = f.text_area :other, class: 'form-control'
+.form-group
+  = f.label :team_person
+  = f.number_field :team_person, class: 'form-control'
+.form-group
+  = f.label :position
+  = f.text_field :position, class: 'form-control'
+.form-group
+  = f.label :own_phase
+  = f.text_field :own_phase, class: 'form-control'
+.form-group
+  = f.label :content
+  = f.text_area :content, class: 'form-control'
+.form-group
+  = f.submit class: 'btn btn-primary'

@@ -22,6 +22,7 @@ class SkillsheetsController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @skillsheet = Skillsheet.new
+    @skillsheet.work_contents.build
   end
 
   def create

@@ -6,32 +6,7 @@
           li = message
   - if action_name == 'new'
     = f.hidden_field :user_id, value: user.id
-  .form-group
-    = f.label :final_education
-    = f.text_field :final_education, class: 'form-control'
-  .form-group
-    = f.label :address
-    = f.text_field :address, class: 'form-control'
-  .form-group
-    = f.label :nearest_station_line
-    = f.text_field :nearest_station_line, class: 'form-control'
-  .form-group
-    = f.label :nearest_station
-    = f.text_field :nearest_station, class: 'form-control'
-  .form-group
-    = f.label :specialty
-    = f.text_field :specialty, class: 'form-control'
-  .form-group
-    = f.label :business_knowledge
-    = f.text_field :business_knowledge, class: 'form-control'
-  .form-group
-    = f.label :appeal_point
-    = f.text_field :appeal_point, class: 'form-control'
-  .form-group
-    = f.label :license
-    = f.text_field :license, class: 'form-control'
-  .form-group
-    = f.label :note
-    = f.text_field :note, class: 'form-control'
-  .form-group
-    = f.submit "登録", class: 'btn btn-primary'
+  = render 'skillsheet_form', f: f
+  = f.fields_for :work_contents do |fi|
+    = render 'work_content_form', f: fi
+  = f.submit "登録", class: 'btn btn-primary'
